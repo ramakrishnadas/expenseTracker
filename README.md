@@ -12,9 +12,7 @@ When the user chooses to view the expense summary, the program performs the nece
 
 It is important to note that, whenever the user introduces an invalid input or choice, the program will handle it gracefully and display the main menu once again.
 
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+Software demonstration video: [Software Demo Video](https://youtu.be/Ruq90qIK33I)
 
 # Development Environment
 

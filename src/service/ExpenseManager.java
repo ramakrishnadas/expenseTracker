@@ -10,12 +10,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ExpenseManager {
+    // Declare and define ExpenseManager class attributes
     private ArrayList<Expense> expenses = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
+    // Start program loop and display options menu
     public void run() {
-        // Core program logic: Display menu, handle user input, and add, delete, view expenses
-        System.out.println("This is my app");
+                
         boolean running = true;
 
         while (running) {
@@ -50,6 +51,7 @@ public class ExpenseManager {
         }
     }
 
+    // Display Expense Tracker menu with numbered options
     private void displayMenu() {
         System.out.println("\n======= Expense Tracker Menu ======");
         System.out.println("1. Add Expense");
@@ -61,6 +63,7 @@ public class ExpenseManager {
         System.out.println("==================================");
     }
 
+    // Take user input to create a new Expense object and add it to the expenses ArrayList
     private void handleAddExpense() {
         System.out.print("Enter amount: ");
         double amount = Double.parseDouble(scanner.nextLine());
@@ -88,6 +91,7 @@ public class ExpenseManager {
         addExpense(expense);
     }
 
+    // Take user input to create a new RecurringExpense object and add it to the expenses ArrayList
     private void handleAddRecurringExpense() {
         System.out.print("Enter amount: ");
         double amount = Double.parseDouble(scanner.nextLine());
@@ -127,6 +131,7 @@ public class ExpenseManager {
         addExpense(recurringExpense);
     }
 
+    // Display all of the Expenses and RecurringExpenses in the expenses ArrayList
     private void handleViewExpenses() {
         if (expenses.isEmpty()) {
             System.out.println("No expenses recorded.");
@@ -137,6 +142,7 @@ public class ExpenseManager {
         }
     }
 
+    // Take user input of the expense id to be deletes and remove it from the expenses ArrayList
     private void handleDeleteExpense() {
         System.out.print("Enter the ID of the expense you wish to delete: ");
         int id = Integer.parseInt(scanner.nextLine());
@@ -150,6 +156,7 @@ public class ExpenseManager {
         deleteExpense(id);
     }
 
+    // Display Expense summary
     private void handleSummary() {
         if (expenses.isEmpty()) {
             System.out.println("No expenses recorded.");
@@ -160,22 +167,26 @@ public class ExpenseManager {
         }
     }
 
+    // Add expense to expenses ArrayList and display success message
     public void addExpense(Expense expense) {
         expenses.add(expense);
         System.out.println("Expense added successfully!");
     }
 
+    // Delete expense from expenses ArrayList and display success message
     public void deleteExpense(int id) {
         expenses.removeIf(e -> e.getId() == id);
         System.out.println("Expense deleted successfully!");
     }
 
+    // Print list of expenses in expenses ArrayList
     public void viewExpenses() {
         for (Expense expense : expenses) {
             System.out.println(expense);
         }
     }
 
+    // Calculate expense category totals and overall total and display the summary
     public void getSummary() {
         
         if (expenses.isEmpty()) {
@@ -194,7 +205,6 @@ public class ExpenseManager {
             totalAmount += amount;
         }
 
-        System.out.println("\n==== Expense Summary ====");
         for (Map.Entry<String, Double> entry : categoryTotals.entrySet()) {
             System.out.printf("%-20s: $%.2f%n", entry.getKey(), entry.getValue());
         }

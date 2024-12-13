@@ -6,6 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
 public class InputValidator {
+    // Check if input date is a valid date
     public static boolean isValidDate(String date) {
 
         date = date.trim();
@@ -26,6 +27,7 @@ public class InputValidator {
         }
     }
 
+    // Check if input amount is valid (greater than zero)
     public static boolean isValidAmount(double amount) {
         return amount >= 0;
     }
